@@ -52,6 +52,7 @@ class Animal{
     }
 } Frog; // tse ja vyjobujus shcho pamjataju jak global objects oholoshuvat
 
+// V11
 class Exam{
     // sting name, time_t date, int score
     // public:
