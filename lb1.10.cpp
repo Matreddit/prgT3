@@ -62,7 +62,7 @@ class Exam{
 
 int main(){
     // V10
-    Frog.setAnimal("Zhaba", "green", 14.08);
+    Frog.setAnimal("Zhaba", "green", 14.88);
     Frog.printWeightX2();
 
     // V11
