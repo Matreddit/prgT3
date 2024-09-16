@@ -63,16 +63,16 @@ class Novel : public Book {
     string mainCharacters;
 
     Novel() : Book() { mainCharacters = ""; }
-    Novel(string mainCharacters, string name, string author,
-        int year, int pages, float price, int id) : Book(name, author, year, pages, price, id) {
-            this->mainCharacters = mainCharacters;
-        }
+    Novel(string mainCharacters, string name, string author, int year, int pages, float price, int id) :
+        Book(name, author, year, pages, price, id) 
+    {
+        this->mainCharacters = mainCharacters;
+    }
     
     void addMainCharacters(string character) {
-        mainCharacters += ", ";
-        mainCharacters += character; }
-    
-
+        if (mainCharacters == "") mainCharacters += character;
+        else{ mainCharacters += ", "; mainCharacters += character; } 
+    }
 };
 
 class ScienceBook : protected Book {
@@ -89,6 +89,45 @@ class ScienceBook : protected Book {
 };
 
 class KidsBook : private Book {
+    public:
     int age;
     // todo: відновити рівень доступу
+    using Book::name; // без using теж працює, але: access declarations are deprecated in favor of using-declarations; suggestion: add the ‘using’ keyword [-Wdeprecated]gcc
+    using Book::show; // для функцій () не пишем
+
+    KidsBook() : Book(){ age = 3; }
+    KidsBook(int age, string name, string author, int year, int pages, float price, int id) :
+        Book(name, author, year, pages, price, id)
+    {
+        this->age = age;
+    }
 };
+
+void l(){cout << "\n\n\n";}
+int main(){
+    const int N = 12;
+
+
+    KidsBook k;
+    k.show();
+    cout << "the name is: " << k.name;
+
+    l();
+
+    Book books[N];
+    for (int i = 0; i < N; i++){
+        books[i] = Novel("SF, Pudge, Io", "DefOfTheAnc", "Vova Z.", 1998 + i, 113 + i * 3, 399.99 - i / 3, i);
+    }
+    for (int i = 0; i < N; i++){
+        books[i].show();
+    }
+
+    l();
+    
+
+
+
+
+    return 0;
+
+}
