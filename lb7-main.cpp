@@ -13,24 +13,24 @@ class E1{
     int mE1;
     public:
     E1(int a) { mE1 = a; cout << "E1 constructor\n"; }
-    //E1(int a = 0) : mE1(a) { cout << "E1 constructor\n"; } // адекватніший варіант
+    //E1(int a = 0) : mE1(a) { cout << "E1 constructor\n"; } // адекватніший варіант конструктора
     E1(const E1 &obj) { mE1 = obj.mE1; cout << "E1 copied\n"; }
-    ~E1() { cout << "E1 destroyed\n"; } // virtual???????
+    ~E1() { cout << "E1 destroyed\n"; } // virtual ?
 
     virtual void setM(int m) { mE1 = m; }
-    virtual int getM() { return mE1; } // const????????
+    virtual int getM() { return mE1; } // const?
 };
 class D1 : public E1{
     protected:
     int mD1;
     public:
     D1(int a, int b) : E1(b) { mD1 = a; cout << "D1 constructor\n"; }
-    // D1(int a = 0, int b = 0) : E1(b), mD1(a) { cout << "D1 constructor\n"; } //
+    // D1(int a = 0, int b = 0) : E1(b), mD1(a) { cout << "D1 constructor\n"; } // адекватніший варіант конструктора
     D1(const D1 &obj) : E1(obj) { mD1 = obj.mD1; cout << "D1 copied\n"; }
     ~D1() {cout << "D1 destroyed\n"; }
 
     void setM(int m) { mD1 = m; }
-    int getM() { return mD1; } // const???????????
+    int getM() { return mD1; } // const?
 };
 class C1 : private D1{
     protected:
@@ -43,7 +43,7 @@ class C1 : private D1{
     void setM(int m) { mC1 = m; }
     int getM() { return mC1; } // const ?
 };
-class C2 : private D1{
+class C2 : public D1{
     protected:
     int mC2;
     public:
@@ -55,13 +55,22 @@ class C2 : private D1{
     int getM() { return mC2; } // const ?
 };
 
+class C3{
+    protected:
+    int mC3;
+    public:
+    C3(int a) { mC3 = a; cout << "C3 constructor\n"; }
+    C3(const C3 &obj) { mC3 = obj.mC3; cout << "C3 copied\n"; }
+    ~C3() { cout << "C3 destroyed\n"; } // virtual ?
+};
+
+
+
+
+
 
 
 int main(){
-
-    cout << "Heil Keizer!\n";
-
-
 
     return 0;
 }
