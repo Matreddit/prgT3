@@ -8,6 +8,7 @@ using namespace std;
 даних. Функція main() повинна ілюструвати доступ до даних та методів у
 кожному класі ієрархії успадкування.*/
 
+// base classes
 class E1{
     protected:
     int mE1;
@@ -20,6 +21,15 @@ class E1{
     virtual void setM(int m) { mE1 = m; }
     virtual int getM() { return mE1; } // const?
 };
+class C3{
+    protected:
+    int mC3;
+    public:
+    C3(int a) { mC3 = a; cout << "C3 constructor\n"; }
+    C3(const C3 &obj) { mC3 = obj.mC3; cout << "C3 copied\n"; }
+    ~C3() { cout << "C3 destroyed\n"; } // virtual ?
+};
+// derived classes
 class D1 : public E1{
     protected:
     int mD1;
@@ -55,14 +65,7 @@ class C2 : public D1{
     int getM() { return mC2; } // const ?
 };
 
-class C3{
-    protected:
-    int mC3;
-    public:
-    C3(int a) { mC3 = a; cout << "C3 constructor\n"; }
-    C3(const C3 &obj) { mC3 = obj.mC3; cout << "C3 copied\n"; }
-    ~C3() { cout << "C3 destroyed\n"; } // virtual ?
-};
+
 
 
 
