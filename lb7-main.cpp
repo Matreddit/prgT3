@@ -8,6 +8,8 @@ using namespace std;
 даних. Функція main() повинна ілюструвати доступ до даних та методів у
 кожному класі ієрархії успадкування.*/
 
+// https://chatgpt.com/share/66fae721-3550-8012-accc-a3caf0cc55d1
+
 // base classes
 class E1{
     protected:
