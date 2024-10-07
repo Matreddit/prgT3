@@ -51,7 +51,7 @@ class Appliciant : public Interface{
 
     void printInfo() const override{
         cout << "Appliciant: " << fullName << ", Faculty: " << faculty
-            << ", Date of birth: " << birthDate << ", Year of entry: " << yearOfEntry << endl;
+            << ",\n\tDate of birth: " << birthDate << ", Year of entry: " << yearOfEntry << endl;
     }
     int getAge() const override{
         int pos = birthDate.find_last_of("0123456789");
@@ -87,8 +87,8 @@ class Student : public Appliciant {
 
     void printInfo() const override{
         cout << "Bachelor: " << fullName << ", Faculty: " << faculty
-            << ", Date of birth: " << birthDate << ", Year of entry: " << yearOfEntry
-            << ", Bachelor's year of graduation: " << yearOfBaGrad
+            << ",\n\tDate of birth: " << birthDate << ", Year of entry: " << yearOfEntry
+            << ",\n\tBachelor's year of graduation: " << yearOfBaGrad
             << ", Education form: " << educationForm << endl;
     }
     // Кожен похідний клас має власні методи
@@ -110,10 +110,10 @@ class Master : public Student {
             courseOfMAdeg(MAcourse) {}
     void printInfo() const override{
         cout << "Master: " << fullName << ", Faculty: " << faculty
-            << ", Date of birth: " << birthDate << ", Year of entry: " << yearOfEntry
-            << ", Bachelor's year of graduation: " << yearOfBaGrad
+            << ",\n\tDate of birth: " << birthDate << ", Year of entry: " << yearOfEntry
+            << ",\n\tBachelor's year of graduation: " << yearOfBaGrad
             << ", Education form: " << educationForm 
-            << ", Master's degree course: " << courseOfMAdeg << endl;
+            << ",\n\tMaster's degree course: " << courseOfMAdeg << endl;
     }
     // Кожен похідний клас має власні методи
     int remainingSemesters() const {
