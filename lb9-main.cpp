@@ -31,7 +31,6 @@ V13 -> V3
 
 */
 
-class Unik;
 
 class Interface{
     public:
@@ -74,7 +73,6 @@ class Appliciant : public Interface{
         int currentYear = localtime(&now)->tm_year + 1900;
         return currentYear >= yearOfEntry; // (currentYear >= yearOfEntry) ? true : false;
     }
-    // friend class Unik;
 };
 
 class Student : public Appliciant {
@@ -99,7 +97,6 @@ class Student : public Appliciant {
         int currentYear = localtime(&now)->tm_year + 1900;
         return currentYear >= yearOfBaGrad;
     }
-    friend class Unik;
 };
 
 class Master : public Student {
@@ -122,7 +119,6 @@ class Master : public Student {
     int remainingSemesters() const {
         return 4 - courseOfMAdeg * 2;
     }
-    friend class Unik;
 };
 
 class Unik{
@@ -293,7 +289,7 @@ void mainMain(){
     Unik::searchByName("Anna", students, n);
 
     cout << "\n--------------------\n\n";
-    Unik::printAllStudents(students, n);
+    // Unik::printAllStudents(students, n);
 
 
     Unik::deleteStudents(students, n);
