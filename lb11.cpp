@@ -31,6 +31,10 @@ using namespace std;
 
 
 
+
+
+// ! я так розумію мені треба було чергу зробить, але я проzчитався, тому в мене стек.
+
 template<class T>
 class Node{
     public:
