@@ -33,7 +33,7 @@ class Max{
     Max(const string& LastName, int Money) : lastName(LastName), money(Money) {}
 
     void getMoneyFromVova(Vova& obj){
-        money = obj.money;
+        money += obj.money;
         obj.money = 0;
     }
     
